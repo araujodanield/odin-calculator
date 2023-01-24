@@ -6,49 +6,58 @@
 
 body {
     height: 100vh;
+    font-size: 20px;
+    color: aliceblue;
+    background-color: black;
+    background-image: url(images/work-table.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.overlay {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(223, 241, 241);
-    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .calculator {
+    width: 380px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
     margin-top: 8%;
-    width: 380px;
-    height: 600px;
-    background-color: rgb(22, 22, 22);
     padding: 5px;
     border-radius: 15px;
     box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.5);
+    background-color: #161616;
 }
 
 .display {
+    width: 360px;
+    height: 100px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    width: 100%;
-    height: 100px;
-    margin: 30px 0 10px;
+    margin: 30px auto 10px;
     padding: 0 10px;
-    background-color: rgb(41, 41, 41);
     font-size: 50px;
-    color: aliceblue;
     border-radius: 10px;
+    background-color: #292929;
 }
 
 .btn-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
     width: 100%;
     height: 100%;
     gap: 2px;
+    display: grid;
     grid-area: btn-background;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-template-areas: 
     "clear clear delete divide"
     "one two three multiply"
@@ -57,28 +66,41 @@ body {
     "pm  zero dot equal";
 }
 
-.buttons {
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(68, 68, 68);
-    color: aliceblue;
-    border-radius: 10px;
     font-size: 25px;
+    border-radius: 10px;
+    background-color: #444444;
     user-select: none;
     -webkit-user-drag: none;
     -webkit-user-select: none;
 }
 
-.buttons:hover {
-    background-color: rgb(48, 48, 48);
+.btn:hover {
+    background-color: #303030;
 }
 
-.buttons:active {
-    background-color: rgb(29, 29, 29);
+.btn:active {
+    background-color: #1d1d1d;
+    color: #d1d5d8;
 }
 
-/* Individual buttons */
+.actions {
+    background-color: #303030;
+}
+
+.actions:hover {
+    background-color: #1d1d1d;
+}
+
+.actions:active {
+    background-color: #0f0f0f;
+}
+
+
+/* buttons grid id */
 #zero {
     grid-area: zero;
 }
@@ -129,121 +151,57 @@ body {
 
 #plus {
     grid-area: plus;
-    background-color: rgb(48, 48, 48);
 }
-
-#plus:hover {
-    background-color: rgb(29, 29, 29);
-}
-
-#plus:active {
-    background-color: rgb(15, 15, 15);
-}
-
-
 
 #minus {
     grid-area: minus;
-    background-color: rgb(48, 48, 48);
 }
-
-#minus:hover {
-    background-color: rgb(29, 29, 29);
-}
-
-#minus:active {
-    background-color: rgb(15, 15, 15);
-}
-
-
 
 #multiply {
     grid-area: multiply;
-    background-color: rgb(48, 48, 48);
 }
-
-#multiply:hover {
-    background-color: rgb(29, 29, 29);
-}
-
-#multiply:active {
-    background-color: rgb(15, 15, 15);
-}
-
-
 
 #divide {
     grid-area: divide;
-    background-color: rgb(48, 48, 48);
 }
 
-#divide:hover {
-    background-color: rgb(29, 29, 29);
+#delete {
+    grid-area: delete;
 }
 
-#divide:active {
-    background-color: rgb(15, 15, 15);
+#clear {
+    grid-area: clear;
 }
-
-
 
 #equal {
     grid-area: equal;
-    background-color: rgb(0, 221, 221);
+    background-color: #00dddd;
     color: black;
 }
 
 #equal:hover {
-    background-color: rgb(0, 196, 196);
+    background-color: #00c4c4;
 }
 
 #equal:active {
-    background-color: rgb(0, 156, 156);
+    background-color: #009c9c;
+    color: #141414;
 }
 
-
-
-#clear {
-    grid-area: clear;
-    background-color: rgb(48, 48, 48);
-}
-
-#clear:hover {
-    background-color: rgb(29, 29, 29);
-}
-
-#clear:active {
-    background-color: rgb(15, 15, 15);
-}
-
-
-
-#delete {
-    grid-area: delete;
-    background-color: rgb(48, 48, 48);
-}
-
-#delete:hover {
-    background-color: rgb(29, 29, 29);
-}
-
-#delete:active {
-    background-color: rgb(15, 15, 15);
-}
 
 
 .footer a{
-    color: rgb(0, 71, 133);
+    color: #d4d6d8;
     text-decoration: none;
     font-weight: bold;
 }
 
-i {
-    font-size: 15px;
+.footer a:hover {
+    color: white;
+    text-shadow: 0px 0px 10px #d8fffc;
+    transition: all 0.3s ease;
 }
 
-.footer a:hover {
-    color: rgb(112, 154, 238);
-    text-shadow: 0px 0px 10px rgb(192, 218, 221);
-    transition: all 0.3s ease;
+i {
+    font-size: 15px;
 }
