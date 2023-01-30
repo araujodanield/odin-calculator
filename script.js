@@ -1,4 +1,4 @@
-const display = document.querySelector(".display");
+const display = document.querySelector(".user-input");
 
 const btn = {
     zero: document.getElementById("zero"),
@@ -11,7 +11,7 @@ const btn = {
     seven: document.getElementById("seven"),
     eight: document.getElementById("eight"),
     nine: document.getElementById("nine"),
-    dot: document.getElementById("dot"),
+    comma: document.getElementById("comma"),
     plusMinus: document.getElementById("plus-minus"),
     plus: document.getElementById("plus"),
     minus: document.getElementById("minus"),
@@ -53,8 +53,8 @@ let changeDisplay = () => {
     btn.nine.addEventListener("click", () => {
         display.textContent += "9";
     });
-    btn.dot.addEventListener("click", () => {
-        display.textContent += ".";
+    btn.comma.addEventListener("click", () => {
+        display.textContent += ",";
     });
     // btn.plusMinus.addEventListener("click", () => {
     //     display.textContent += "test";
