@@ -59,7 +59,7 @@ body {
 
 .user-input {
     min-height: 50px;
-    font-size: 40px;
+    font-size: 35px;
     overflow-wrap: break-word;
 }
 
@@ -73,9 +73,9 @@ body {
     grid-template-rows: repeat(5, 1fr);
     grid-template-areas: 
     "clear clear delete divide"
-    "one two three multiply"
+    "seven eight nine multiply"
     "four five six minus"
-    "seven eight nine plus"
+    "one two three plus"
     "pm  zero comma equal";
 }
 
