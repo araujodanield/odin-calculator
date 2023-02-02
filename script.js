@@ -37,8 +37,19 @@ changeDisplay = () => {
     })
 };
 
-checkRules = () => {};
+checkRules = () => {
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+
+            // Check if the input has more than 16 digits
+            if (input.textContent.length >= 16) {
+                input.textContent = input.textContent.substring(0, 16);
+            }
+        })
+    })
+};
 
 operate = () => {};
 
 changeDisplay();
+checkRules();
