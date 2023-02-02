@@ -3,17 +3,19 @@ const input = document.querySelector(".user-input");
 const buttons = document.querySelectorAll("button");
 
 
-let changeDisplay = () => {
+changeDisplay = () => {
     buttons.forEach((btn) => {
         btn.addEventListener("click", (e) => {
             let value = e.target.textContent;
 
             if (+value >= 0 || value === ",") {
-                input.textContent += value
+                if (value === "," && input.textContent.includes(",")) {return};
+                input.textContent += value;
             } else if (value === "+ / -") {
-                input.textContent = "-" + input.textContent
+                if (value === "+ / -" && input.textContent.includes("-")) {return};
+                input.textContent = "-" + input.textContent;
             } else if (value === "⌫") {
-                input.textContent = input.textContent.toString().slice(0, -1)
+                input.textContent = input.textContent.slice(0, -1);
             } else if (value === "C") {
                 operation.textContent = ""
                 input.textContent = ""
@@ -24,5 +26,9 @@ let changeDisplay = () => {
         })
     })
 };
+
+checkRules = () => {};
+
+operate = () => {};
 
 changeDisplay();
