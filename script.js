@@ -3,6 +3,7 @@ const input = document.querySelector(".user-input");
 const buttons = document.querySelectorAll("button");
 
 let value;
+
 changeDisplay = () => {
     buttons.forEach((btn) => {
         btn.addEventListener("click", (e) => {
@@ -12,7 +13,7 @@ changeDisplay = () => {
                 input.textContent += value;
 
             } else if (value === ",") {
-                if (input.textContent.includes(",") || !+input.textContent) {
+                if (input.textContent.includes(",")) {
                     return;
                 } else {
                     input.textContent += value;
@@ -30,7 +31,8 @@ changeDisplay = () => {
                 input.textContent = "";
 
             } else {
-                operation.textContent += input.textContent + " " + value + " ";
+                if (input.textContent === "") {return};
+                operation.textContent += `${input.textContent} ${value} `;
                 input.textContent = "";
             }
         })
