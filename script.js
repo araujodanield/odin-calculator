@@ -97,6 +97,7 @@ function clearAll() {
 
 function operate() {
     const number = Number(currentNumber.replace(",","."));
+    if (currentOperation.textContent.includes("=")) {return};
     switch (operator) {
         case "+":
             currentResult += number;
