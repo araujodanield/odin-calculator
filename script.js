@@ -126,6 +126,7 @@ function addOperator(newOperator) {
     operator = newOperator;
     currentResult = Number(currentNumber.replace(",","."));
     currentNumber = "";
+    currentOperation.textContent += `${input.textContent} ${operator} `;
 };
 
 function switchNegative() {
@@ -171,6 +172,7 @@ function operate() {
     }
     currentNumber = currentResult.toString().replace(".",",");
     operator = "";
+    currentOperation.textContent += `${input.textContent} = `;
     input.textContent = currentResult.toString().replace(".",",");
 };
 
