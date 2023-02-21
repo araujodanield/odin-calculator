@@ -50,15 +50,21 @@ body {
 }
 
 .operation {
+    width: 100%;
     min-height: 20px;
     font-size: 18px;
+    text-align: end;
     color: rgb(207, 208, 209);
+    overflow: auto;
     overflow-wrap: break-word;
 }
 
 .user-input {
+    width: 100%;
     min-height: 50px;
     font-size: 35px;
+    text-align: end;
+    overflow: auto;
     overflow-wrap: break-word;
 }
 
