@@ -45,7 +45,6 @@ function changeDisplay(value) {
     } else if (value === "+/-") {
         switchNegative();
     } else if (value === "⌫") {
-        resetOperation();
         deleteNumber();
     } else if (value === "C") {
         clearAll();
@@ -80,8 +79,12 @@ function switchNegative() {
 };
 
 function deleteNumber() {
-    currentNumber = currentNumber.slice(0, -1);
-    input.textContent = currentNumber;
+    if (currentOperation.textContent.includes("=")) {
+        currentOperation.textContent = "";
+    } else {
+        currentNumber = currentNumber.slice(0, -1);
+        input.textContent = currentNumber;
+    };
 };
 
 function clearAll() {
@@ -120,6 +123,4 @@ function operate() {
 
 function resetOperation() {
     if (currentOperation.textContent.includes("=")) {clearAll()};
-}
-
-changeDisplay();
+};
