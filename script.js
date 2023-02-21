@@ -38,23 +38,20 @@ for (let id in buttons) {
 
 function changeDisplay(value) {
     if (typeof value === "number" || value === ",") {
+        resetOperation();
         addNumber(value);
     } else if (value === "+" || value === "-" || value === "x" || value === "÷") {
         addOperator(value);
     } else if (value === "+/-") {
         switchNegative();
     } else if (value === "⌫") {
+        resetOperation();
         deleteNumber();
     } else if (value === "C") {
         clearAll();
     } else if (value === "=") {
         operate();
     };
-
-    //Check if the input has more than 16 digits
-    // if (input.textContent.length >= 16) {
-    //     input.textContent = input.textContent.substring(0, 16);
-    // };
 };
 
 function addNumber(number) {
@@ -118,6 +115,11 @@ function operate() {
     operator = "";
     currentOperation.textContent += `${input.textContent} = `;
     input.textContent = currentResult.toString().replace(".",",");
+    currentResult = 0;
 };
+
+function resetOperation() {
+    if (currentOperation.textContent.includes("=")) {clearAll()};
+}
 
 changeDisplay();
