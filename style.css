@@ -51,7 +51,7 @@ body {
 
 .operation {
     width: 100%;
-    min-height: 20px;
+    min-height: fit-content;
     font-size: 18px;
     text-align: end;
     color: rgb(207, 208, 209);
@@ -61,7 +61,7 @@ body {
 
 .user-input {
     width: 100%;
-    min-height: 50px;
+    min-height: fit-content;
     font-size: 35px;
     text-align: end;
     overflow: auto;
