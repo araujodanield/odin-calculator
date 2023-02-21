@@ -57,11 +57,17 @@ function addNumber(number) {
     if (number === "," && currentNumber.includes(",")) {return};
     if (number === "," && currentNumber === "") {currentNumber = 0};
     currentNumber += number;
-    input.textContent = currentNumber;
+    input.textContent = formatNumber(Number(currentNumber.replace(",", ".")));
+};
+
+function formatNumber(number) {
+    return number.toLocaleString("pt-BR", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 6
+    });
 };
 
 function addOperator(newOperator) {
-
     operator = newOperator;
     currentResult = Number(currentNumber.replace(",","."));
     currentNumber = "";
@@ -114,11 +120,10 @@ function operate() {
         default:
             currentResult = "";
     }
-    currentNumber = currentResult.toString().replace(".",",");
+    currentNumber = formatNumber(currentResult).replace(".", ",");
     operator = "";
     currentOperation.textContent += `${input.textContent} = `;
-    input.textContent = currentResult.toString().replace(".",",");
-    currentResult = 0;
+    input.textContent = formatNumber(currentResult);
 };
 
 function resetOperation() {
