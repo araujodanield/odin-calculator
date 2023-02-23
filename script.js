@@ -55,15 +55,28 @@ function changeDisplay(value) {
 
 function addNumber(number) {
     if (number === "," && currentNumber.includes(",")) {return};
-    if (number === "," && currentNumber === "") {currentNumber = 0};
+    if (number === "," && currentNumber === "") {
+        currentNumber = "0,";
+        input.textContent = "0,";
+        return;
+    };
+    if (currentNumber.length >= 16) { return; }
     currentNumber += number;
-    input.textContent = formatNumber(Number(currentNumber.replace(",", ".")));
+    if (currentNumber.replace(".", "").length > 16) {
+        currentNumber = currentNumber.slice(0, -1);
+        return;
+    }
+    if (number !== ",") {
+        input.textContent = formatNumber(Number(currentNumber.replace(",", ".")));
+    } else {
+        input.textContent += ",";
+    };
 };
 
 function formatNumber(number) {
     return number.toLocaleString("pt-BR", {
         minimumFractionDigits: 0,
-        maximumFractionDigits: 6
+        maximumFractionDigits: 16
     });
 };
 
