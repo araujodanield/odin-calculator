@@ -60,12 +60,14 @@ function addNumber(number) {
         input.textContent = "0,";
         return;
     };
-    if (currentNumber.length >= 16) { return; }
+    
     currentNumber += number;
+    
     if (currentNumber.replace(".", "").length > 16) {
         currentNumber = currentNumber.slice(0, -1);
         return;
-    }
+    };
+
     if (number !== ",") {
         input.textContent = formatNumber(Number(currentNumber.replace(",", ".")));
     } else {
@@ -89,12 +91,19 @@ function addOperator(newOperator) {
 
 function switchNegative() {
     isNegative = !isNegative;
+    const number = currentNumber.replace(",", ".");
     if (isNegative) {
-        currentNumber = "-" + currentNumber;
+        if (number.startsWith("-")) {
+            currentNumber = number.substring(1);
+        } else {
+            currentNumber = "-" + number;
+        };
     } else {
-        currentNumber = currentNumber.slice(1);
+        if (number.startsWith("-")) {
+        currentNumber = number.substring(1);
+        };
     };
-    input.textContent = currentNumber;
+    input.textContent = formatNumber(Number(currentNumber.replace(",", ".")));
 };
 
 function deleteNumber() {
