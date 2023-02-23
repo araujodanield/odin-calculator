@@ -92,6 +92,8 @@ function addOperator(newOperator) {
 function switchNegative() {
     isNegative = !isNegative;
     const number = currentNumber.replace(",", ".");
+    if (currentNumber === "") {return};
+
     if (isNegative) {
         if (number.startsWith("-")) {
             currentNumber = number.substring(1);
@@ -103,6 +105,7 @@ function switchNegative() {
         currentNumber = number.substring(1);
         };
     };
+    
     input.textContent = formatNumber(Number(currentNumber.replace(",", ".")));
 };
 
