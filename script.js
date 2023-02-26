@@ -87,7 +87,7 @@ function addOperator(newOperator) {
     currentResult = Number(currentNumber.replace(",","."));
     currentOperation.textContent = `${input.textContent} ${operator} `;
     if (input.textContent === "") {currentOperation.textContent = `0 ${operator} `;};
-    // if (currentOperation.textContent.includes(operator)) {} //trying to re-add the condition where the second number overwrite the previous typed;
+    // if (currentOperation.textContent.includes(operator)) {} //trying to re-add the condition where the second number overwrite the previous typed; 'currentNumber = ""' doesn't work anymore, as it will break the single numbers operations and operator changes before press 'equal'
 };
 
 function switchNegative() {
@@ -130,28 +130,33 @@ function clearAll() {
 function operate() {
     const number = Number(currentNumber.replace(",","."));
     if (currentOperation.textContent.includes("=")) {return};
-
+    
     switch (operator) {
         case "+":
             currentResult += number;
             break;
-        case "-":
-            currentResult -= number;
-            break;
-        case "x":
+            case "-":
+                currentResult -= number;
+                break;
+                case "x":
             currentResult *= number;
             break;
-        case "÷":
-            currentResult /= number;
-            break;
-        default:
+            case "÷":
+                currentResult /= number;
+                break;
+                default:
             currentResult = "";
     };
     
     currentNumber = formatNumber(currentResult).replace(".", ",");
     operator = "";
     currentOperation.textContent += `${input.textContent} = `;
-    input.textContent = formatNumber(currentResult);
+    if (number === 0) {
+        input.textContent = "Uh... that's not possible.";
+    } else {
+        input.textContent = formatNumber(currentResult);
+    }
+    
 };
 
 function resetOperation() {
