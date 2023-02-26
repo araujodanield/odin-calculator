@@ -84,6 +84,7 @@ function formatNumber(number) {
 
 function addOperator(newOperator) {
     operator = newOperator;
+    if (input.textContent === "") {input.textContent = "0"};
     currentResult = Number(currentNumber.replace(",","."));
     currentNumber = "";
     currentOperation.textContent = `${input.textContent} ${operator} `;
@@ -129,6 +130,7 @@ function clearAll() {
 function operate() {
     const number = Number(currentNumber.replace(",","."));
     if (currentOperation.textContent.includes("=")) {return};
+
     switch (operator) {
         case "+":
             currentResult += number;
@@ -144,7 +146,8 @@ function operate() {
             break;
         default:
             currentResult = "";
-    }
+    };
+    
     currentNumber = formatNumber(currentResult).replace(".", ",");
     operator = "";
     currentOperation.textContent += `${input.textContent} = `;
