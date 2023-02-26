@@ -63,7 +63,7 @@ function addNumber(number) {
     
     currentNumber += number;
     
-    if (currentNumber.replace(".", "").length > 16) {
+    if (currentNumber.replace(".", "").length > 16 && currentNumber.replace(",", "").length > 16) {
         currentNumber = currentNumber.slice(0, -1);
         return;
     };
@@ -84,10 +84,10 @@ function formatNumber(number) {
 
 function addOperator(newOperator) {
     operator = newOperator;
-    if (input.textContent === "") {input.textContent = "0"};
     currentResult = Number(currentNumber.replace(",","."));
-    currentNumber = "";
     currentOperation.textContent = `${input.textContent} ${operator} `;
+    if (input.textContent === "") {currentOperation.textContent = `0 ${operator} `;};
+    // if (currentOperation.textContent.includes(operator)) {} //trying to re-add the condition where the second number overwrite the previous typed;
 };
 
 function switchNegative() {
