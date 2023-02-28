@@ -41,14 +41,17 @@ function changeDisplay(value) {
         resetOperation();
         addNumber(value);
     } else if (value === "+" || value === "-" || value === "x" || value === "÷") {
+        if (input.textContent.includes("Uh... that's not possible.")) {return};
         addOperator(value);
     } else if (value === "+/-") {
         switchNegative();
     } else if (value === "⌫") {
+        if (input.textContent.includes("Uh... that's not possible.")) {return};
         deleteNumber();
     } else if (value === "C") {
         clearAll();
     } else if (value === "=") {
+        if (input.textContent.includes("Uh... that's not possible.")) {return};
         operate();
     };
 };
