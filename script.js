@@ -27,6 +27,7 @@ let currentNumber = "";
 let currentResult = 0;
 let operator = "";
 let isNegative = false;
+let isNewNumber = true;
 
 
 
@@ -57,13 +58,18 @@ function changeDisplay(value) {
 };
 
 function addNumber(number) {
+    if (isNewNumber) {
+        currentNumber = "";
+        isNewNumber = false;
+    };
+
     if (number === "," && currentNumber.includes(",")) {return};
     if (number === "," && currentNumber === "") {
         currentNumber = "0,";
         input.textContent = "0,";
         return;
     };
-    
+
     currentNumber += number;
     
     if (currentNumber.replace(".", "").length > 16 && currentNumber.replace(",", "").length > 16) {
@@ -90,6 +96,7 @@ function addOperator(newOperator) {
     currentResult = Number(currentNumber.replace(",","."));
     currentOperation.textContent = `${input.textContent} ${operator} `;
     if (input.textContent === "") {currentOperation.textContent = `0 ${operator} `;};
+    isNewNumber = true;
 };
 
 function switchNegative() {
@@ -162,7 +169,6 @@ function operate() {
     operator = "";
     currentOperation.textContent += `${input.textContent} = `;
     input.textContent = formatNumber(currentResult);
-    
 };
 
 function resetOperation() {
