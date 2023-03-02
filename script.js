@@ -136,7 +136,7 @@ function clearAll() {
 function operate() {
     const number = Number(currentNumber.replace(",", "."));
     if (currentOperation.textContent.includes("=")) {return};
-    
+
     switch (operator) {
         case "+":
             currentResult += number;
@@ -161,9 +161,11 @@ function operate() {
         default:
             currentResult = "";
     };
-    
+
+    currentResult = Number(currentResult.toFixed(10));
     currentNumber = formatNumber(currentResult).replace(".", ",");
     operator = "";
+    
     currentOperation.textContent += `${input.textContent} = `;
     input.textContent = formatNumber(currentResult);
 };
