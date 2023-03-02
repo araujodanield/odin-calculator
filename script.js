@@ -93,9 +93,15 @@ function formatNumber(number) {
 
 function addOperator(newOperator) {
     operator = newOperator;
-    currentResult = Number(currentNumber.replace(",","."));
-    currentOperation.textContent = `${input.textContent} ${operator} `;
-    if (input.textContent === "") {currentOperation.textContent = `0 ${operator} `;};
+    currentResult = Number(currentNumber.replace(",", "."));
+    let operationText = input.textContent;
+    if (input.textContent.endsWith(",")) {
+        operationText = input.textContent.slice(0, -1);
+    }
+    currentOperation.textContent = `${operationText} ${operator} `;
+    if (input.textContent === "") {
+        currentOperation.textContent = `0 ${operator} `;
+    }
     isNewNumber = true;
 };
 
@@ -165,8 +171,12 @@ function operate() {
     currentResult = Number(currentResult.toFixed(10));
     currentNumber = formatNumber(currentResult).replace(".", ",");
     operator = "";
-    
-    currentOperation.textContent += `${input.textContent} = `;
+
+    let operationText = input.textContent;
+    if (input.textContent.endsWith(",")) {
+        operationText = input.textContent.slice(0, -1);
+    }
+    currentOperation.textContent += `${operationText} = `;
     input.textContent = formatNumber(currentResult);
 };
 
