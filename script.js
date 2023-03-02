@@ -101,22 +101,19 @@ function addOperator(newOperator) {
 
 function switchNegative() {
     isNegative = !isNegative;
-    const number = currentNumber.replace(",", ".");
     if (currentNumber === "") {return};
 
     if (isNegative) {
-        if (number.startsWith("-")) {
-            currentNumber = number.substring(1);
-        } else {
-            currentNumber = "-" + number;
+        if (!currentNumber.startsWith("-")) {
+            currentNumber = "-" + currentNumber;
         };
     } else {
-        if (number.startsWith("-")) {
-        currentNumber = number.substring(1);
+        if (currentNumber.startsWith("-")) {
+            currentNumber = currentNumber.substring(1);
         };
     };
-    
-    input.textContent = formatNumber(Number(currentNumber.replace(",", ".")));
+
+    input.textContent = currentNumber;
 };
 
 function deleteNumber() {
