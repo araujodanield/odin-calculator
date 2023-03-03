@@ -169,7 +169,7 @@ function operate() {
     };
 
     currentResult = Number(currentResult.toFixed(10));
-    currentNumber = formatNumber(currentResult).replace(".", ",");
+    currentNumber = currentResult.toString().replace(".", ",");
     operator = "";
 
     let operationText = input.textContent;
