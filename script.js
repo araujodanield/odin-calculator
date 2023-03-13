@@ -92,6 +92,9 @@ function formatNumber(number) {
 };
 
 function addOperator(newOperator) {
+    if (operator && !isNewNumber) {
+        operate();
+    };
     operator = newOperator;
     currentResult = Number(currentNumber.replace(",", "."));
     let operationText = input.textContent;
