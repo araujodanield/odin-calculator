@@ -2,7 +2,7 @@
 
 Fifth project of <a href="https://www.theodinproject.com/about">The Odin Project</a> course.
 
-A digital calculator built with JavaScript and DOM.
+A digital calculator built with JavaScript and DOM manipulation.
 
 <a href="https://araujodanield.github.io/odin-calculator/" target="_blank">You can look the page and test the calculator by clicking here!</a>
 
@@ -15,6 +15,15 @@ This calculator was built based on Windows 10 Calculator app, but just with the 
 </br>
 
 - <b>Basic Operations</b>: You can do the four basic arithmetic operations: addition, subtraction, multiplication, and division;
+
+</br>
+
+- <b>Continuous Operations</b>: You can keep doing operations using the operator buttons. Example:
+
+        - "5 + 2"
+        - If instead of "=" you press "x" then the operation will turn into "7 x" and wait the press of a new number;
+        - If you press "2" and "+" then the operation will turn into "14 +", and so go on.
+
 
 </br>
 
@@ -43,3 +52,4 @@ This calculator was built based on Windows 10 Calculator app, but just with the 
         USA: 5,200,600.35
         BRA: 5.200.600,35
 
+#### - Since the start of this project, my goal was to make it the most similar possible to the Windows calculator, so one of the features I was trying to implement was the one where if you press the equal button (=) again after an operation the calculator repeat that operation but with the result as first operator. </br> For example, "5 + 2" results in "7", if you press the equal button then the operation turns into "7 + 2" and results in "9". </br> Unfortunately, I didn't find a way to implement this without breaking another feature of the calculator or needing to refactor all the code from scratch. And considering the time I already spent on this project trying to solve this, I decided to pass this feature for now.
