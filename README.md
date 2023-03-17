@@ -1,3 +1,5 @@
+<img height="15px" src="https://em-content.zobj.net/thumbs/120/twitter/322/flag-brazil_1f1e7-1f1f7.png">[  Leia este documento em português](README.br.md)
+
 # <b>Digital Calculator</b>
 
 Fifth project of <a href="https://www.theodinproject.com/about">The Odin Project</a> course.
@@ -14,14 +16,14 @@ This calculator was built based on Windows 10 Calculator app, but just with the 
 
 </br>
 
-- <b>Basic Operations</b>: You can do the four basic arithmetic operations: addition, subtraction, multiplication, and division;
+- <b>Basic Operations</b>: You can do the four basic arithmetic operations: addition, subtraction, multiplication and division;
 
 </br>
 
 - <b>Continuous Operations</b>: You can keep doing operations using the operator buttons. Example:
 
         - "5 + 2"
-        - If instead of "=" you press "x" then the operation will turn into "7 x" and wait the press of a new number;
+        - If instead of "=" you press "x" then the operation will turn into "7 x" and wait for a new number;
         - If you press "2" and "+" then the operation will turn into "14 +", and so go on.
 
 
@@ -36,11 +38,11 @@ This calculator was built based on Windows 10 Calculator app, but just with the 
 
 </br>
 
-- <b>Delete button</b>: This button allows you to delete the last number pressed, but when you have an operation result on display this button just deletes the operation, allowing you to use the result as the number of a new operation;
+- <b>Delete button</b>: This button allows you to delete the last number pressed, but when you have an operation result on display this button just deletes the operation, allowing you to use the result as the operand of a new operation;
 
 </br>
 
-- <b>Clear button</b>: Clean everything made and reset the calculator;
+- <b>Clear button</b>: Clean everything made and reset the calculator values;
 
 </br>
 
